@@ -2,6 +2,8 @@ lista = {}
 
 def cadastro_aluno():
 
+    print('\n')
+
     print('------------ Cadastro de Alunos e Notas Bimestrais ------------')
 
     print('\n')
@@ -25,11 +27,15 @@ def cadastro_aluno():
 
 def lista_aluno():
     print('------------ Lista de Alunos(a) ------------')
-
     print('\n')
 
-    for nome, info in lista.items():
-        print(f'Nome: {nome}, Serie: {info["serie"]}, Bimestre1: {info["bimestre1"]}, Bimestre2: {info["bimestre2"]}, Bimestre3: {info["bimestre3"]}, Bimestre4: {info["bimestre4"]}, Nota: {info["nota"]}')
+    if len(lista) == 0:
+        print('A lista de alunos(a) estão vazia.')
+    
+    else:
+
+        for nome, info in lista.items():
+            print(f'Nome: {nome}, Serie: {info["serie"]}, Bimestre1: {info["bimestre1"]}, Bimestre2: {info["bimestre2"]}, Bimestre3: {info["bimestre3"]}, Bimestre4: {info["bimestre4"]}, Nota: {info["nota"]}')
 
     # for listas in lista:
     #     print(f"Nome:{lista['nome']}")
@@ -43,17 +49,20 @@ def lista_aluno():
 
 def excluir_aluno():
     print('---------- Excluir Alunos(a) ----------')
+    print('\n')
+
+    if len(lista) == 0:
+        print('A lista de alunos(a) esta vazia. Não há alunos(a) para excluir.')
     
-    print('\n')
-
-    nome = input('Nome do aluno a ser excluido: ')
-    if nome in lista:
-        del lista[nome]
-        print(f'{nome} foi excluido.')
     else:
-        print(f'{nome} não foi excluido.')
+        nome = input('Nome do aluno a ser excluido: ')
+        if nome in lista:
+            del lista[nome]
+            print(f'{nome} foi excluido.')
+        else:
+            print(f'{nome} não foi excluido.')
 
-    print('\n')
+        print('\n')
 
 def modificar_nota():
     print('---------- Modificar Notas ----------')
